@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giga chat | Home</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <form id="room-form" action="/room" method="POST">
+        <h2>Create a new room</h2>
+        <input class="room" type="text" name="room" required />
+        <button class="button" id="submit-room" type="submit">
+          Create room
+        </button>
+      </form>
+      <div class="rooms-container">
+        <% Object.keys(rooms).forEach(room => { %>
+        <div class="room-item">
+          <h3><%= room %></h3>
+          <a class="button" href="/<%= room %>">Join</a>
+        </div>
+        <% }) %>
+      </div>
+    </main>
+  </body>
+  <script defer src="/socket.io/socket.io.js"></script>
+  <script defer src="lobby.js"></script>
+</html>

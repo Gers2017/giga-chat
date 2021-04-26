@@ -74,13 +74,16 @@ main {
   align-items: center;
   font-weight: 600;
   border: none;
-  padding: 0 1.25rem;
+  padding: 0.5rem 1rem;
   border-radius: 0px;
   outline: none;
   color: var(--text-white);
   transition: background-color 0.33s ease;
   background-color: var(--text-blue);
-  font-size: clamp(1rem, 0.5vw, 1.025rem);
+  font-size: clamp(1.075rem, 1.5vw, 1.2rem);
+}
+a.button {
+  text-decoration: none;
 }
 .button:hover {
   background-color: var(--text-blue-light);
@@ -154,4 +157,52 @@ li.info-message::before {
 }
 li.info-message::after {
   margin-left: 1rem;
+}
+#room-form {
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+}
+#room-form h2 {
+  text-align: center;
+  margin: 1rem 0;
+}
+input.room {
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  font-weight: bold;
+  border: none;
+  outline: none;
+  color: var(--bg-dark);
+  background-color: var(--text-white);
+  padding: 0.75rem 1.25rem;
+  display: block;
+  width: 100%;
+}
+input.room::placeholder {
+  color: var(--bg-gray);
+}
+#submit-room {
+  margin-top: 1rem;
+}
+.rooms-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  /* border: var(--bg-light) solid 1px; */
+}
+.room-item {
+  display: grid;
+  grid-template-columns: 60% minmax(max-content, auto);
+  justify-items: stretch;
+  width: 100%;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px var(--text-white) solid;
+}
+.room-item h3 {
+  font-weight: bold;
+  font-size: clamp(1.25rem, 1.5vw, 1.75rem);
 }

@@ -19,9 +19,7 @@ app.get("/", (req, res) => {
 });
 
 // Rooms section
-const rooms = {
-  myRoom: { users: {} },
-};
+const rooms = {};
 
 app.get("/:room", (req, res) => {
   const roomName = req.params.room;
@@ -36,6 +34,7 @@ app.get("/:room", (req, res) => {
 app.post("/room", (req, res) => {
   const roomName = req.body.room;
   // generates an empty users object for the new room
+  console.log("New room:", roomName);
   rooms[roomName] = {
     users: {},
   };

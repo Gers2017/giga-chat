@@ -35,13 +35,15 @@ if (username !== null) {
   //add event listener to form
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    if (input.value) {
-      const message = input.value;
-      socket.emit("send-chat-message", roomName, message);
-      // adds it's own message (client)
-      addMessage(username, message, imagePath);
+    const message = input.value.trim();
+    if (message === "") {
       input.value = "";
+      return;
     }
+    socket.emit("send-chat-message", roomName, message);
+    // adds it's own message (client)
+    addMessage(username, message, imagePath);
+    input.value = "";
   });
 }
 

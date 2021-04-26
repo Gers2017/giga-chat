@@ -1,10 +1,7 @@
 const roomContainer = document.querySelector(".rooms-container");
-// const submitBtn = document.querySelector("#submit-room");
+const input = document.querySelector("input");
 
 let socket = io();
-// submitBtn.addEventListener("click", (e) => {
-//   e.preventDefault();
-// });
 socket.on("room-created", ({ roomName }) => {
   const roomDiv = document.createElement("div");
   roomDiv.textContent = roomName;
@@ -13,4 +10,5 @@ socket.on("room-created", ({ roomName }) => {
   roomLink.textContent = "Join room";
   roomContainer.appendChild(roomDiv);
   roomContainer.appendChild(roomLink);
+  input.value = "";
 });
